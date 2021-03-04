@@ -13,7 +13,7 @@ class PortfoliosController < ApplicationController
       if @portfolio_item.save
         format.html { redirect_to portfolios_path, notice: "Portfolio item is now live." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new}
       end
     end
   end
