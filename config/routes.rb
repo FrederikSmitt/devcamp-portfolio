@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :portfolios, except: [:show]
 
+  get 'angular-items', to: 'portfolios#angular'
+
   #Jeg excepter show, fordi jeg ikke vil have portfolios som flertal
   get 'portfolio/:id',  to: 'portfolios#show',  as: 'portfolio_show'
   #Dette betyder, at jeg f.eks. skal sætte portfolio_show_path i mine views, hvis jeg skal linke til et portfolio
