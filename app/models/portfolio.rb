@@ -3,9 +3,7 @@ class Portfolio < ApplicationRecord
   has_many :technologies
   #DO not accept this if name is blank
   accepts_nested_attributes_for :technologies,
-                                reject_if: lambda {|attrs| attrs['name'].blank? }
-
-
+                                  reject_if: lambda {|attrs| attrs['name'].blank? }
 
   includes Placeholder
 
@@ -15,7 +13,7 @@ class Portfolio < ApplicationRecord
     where(subtitle: 'Angular')
   end
 
-  scope :ruby_on_rails_portfolio_items, -> {where(subtitle: 'Ruby on Rails')}
+  scope :ruby_on_rails_potrfolio_items, -> {where(subtitle: 'Ruby on Rails')}
 
   #Kører efter neW, dvs. efter the form er kreeret
   #Dette er et callback
