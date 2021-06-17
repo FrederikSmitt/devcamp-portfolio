@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
   include DeviseWhitelist
   include SetSource
+  include CurrentUserConcern
 
-  def current_user
-    super || OpenStruct.new(name: "Guest user", first_name: "Guest", last_name: "user", email: "guest@ex.com")
+  before_action :set_title
+
+  def set_title
+    @page_title = "DevcampPortfolio dynamic title"
   end
 
 end
